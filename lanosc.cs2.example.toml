@@ -1,0 +1,26 @@
+[osc]
+host = "127.0.0.1"
+port = 7700
+
+[playbacks]
+cs2_round_start   = { address = "/qlcplus/playback/40", arguments = [255] }
+cs2_round_end     = { address = "/qlcplus/playback/41", arguments = [255] }
+cs2_bomb_planted  = { address = "/qlcplus/playback/42", arguments = [255] }
+cs2_bomb_defused  = { address = "/qlcplus/playback/43", arguments = [255] }
+cs2_bomb_exploded = { address = "/qlcplus/playback/44", arguments = [255] }
+cs2_match_end     = { address = "/qlcplus/playback/45", arguments = [255] }
+
+[[games]]
+name    = "cs2"
+enabled = true
+adapter = "games.cs2:Cs2GsiAdapter"
+listen_host = "127.0.0.1"
+listen_port  = 10053
+
+[games.cue_map]
+round_started = "cs2_round_start"
+round_ended   = "cs2_round_end"
+bomb_planted  = "cs2_bomb_planted"
+bomb_defused  = "cs2_bomb_defused"
+bomb_exploded = "cs2_bomb_exploded"
+match_ended   = "cs2_match_end"

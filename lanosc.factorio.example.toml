@@ -1,0 +1,24 @@
+[osc]
+host = "127.0.0.1"
+port = 7700
+
+[playbacks]
+factorio_player_join     = { address = "/qlcplus/playback/50", arguments = [255] }
+factorio_player_leave    = { address = "/qlcplus/playback/51", arguments = [255] }
+factorio_player_death    = { address = "/qlcplus/playback/52", arguments = [255] }
+factorio_rocket_launched = { address = "/qlcplus/playback/53", arguments = [255] }
+factorio_research        = { address = "/qlcplus/playback/54", arguments = [255] }
+
+[[games]]
+name    = "factorio"
+enabled = true
+adapter = "games.factorio:FactorioAdapter"
+# Full path to the event log written by the lanosc-bridge mod
+log_path = "/home/user/.factorio/script-output/lanosc_events.log"
+
+[games.cue_map]
+player_join       = "factorio_player_join"
+player_leave      = "factorio_player_leave"
+player_death      = "factorio_player_death"
+rocket_launched   = "factorio_rocket_launched"
+research_finished = "factorio_research"

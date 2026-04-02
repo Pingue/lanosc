@@ -1,0 +1,48 @@
+[osc]
+host = "127.0.0.1"
+port = 7700
+
+# Named QLC+ actions. Game adapters can trigger these by name.
+[playbacks]
+# intro = { address = "/qlcplus/playback/1", arguments = [255] }
+# victory = { address = "/qlcplus/playback/2", arguments = [255] }
+# dummy_a = { address = "/qlcplus/playback/10", arguments = [255] }
+# dummy_b = { address = "/qlcplus/playback/11", arguments = [255] }
+
+# Future game integrations will live in separate Python files and can be loaded
+# here with module_path:ClassName.
+#
+# [[games]]
+# name = "dummy"
+# enabled = true
+# adapter = "games.dummy:DummyGameAdapter"
+# interval = 2.0
+# sequence = ["dummy_a", "dummy_b"]
+
+# BAR spectator integration (global cues)
+#
+# [playbacks]
+# bar_match_start = { address = "/qlcplus/playback/20", arguments = [255] }
+# bar_match_end = { address = "/qlcplus/playback/21", arguments = [255] }
+# bar_commander_down = { address = "/qlcplus/playback/22", arguments = [255] }
+# bar_nuke_launch = { address = "/qlcplus/playback/23", arguments = [255] }
+# bar_nuke_detonation = { address = "/qlcplus/playback/24", arguments = [255] }
+# bar_superweapon = { address = "/qlcplus/playback/25", arguments = [255] }
+# bar_tech3_unlock = { address = "/qlcplus/playback/26", arguments = [255] }
+#
+# [[games]]
+# name = "bar"
+# enabled = true
+# adapter = "games.bar:BarSpectatorAdapter"
+# listen_host = "127.0.0.1"
+# listen_port = 10051
+# require_spectator = true
+#
+# [games.cue_map]
+# match_started = "bar_match_start"
+# match_ended = "bar_match_end"
+# commander_died = "bar_commander_down"
+# nuke_launched = "bar_nuke_launch"
+# nuke_detonated = "bar_nuke_detonation"
+# superweapon_fired = "bar_superweapon"
+# t3_unlocked = "bar_tech3_unlock"

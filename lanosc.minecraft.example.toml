@@ -1,0 +1,34 @@
+[osc]
+host = "127.0.0.1"
+port = 7700
+
+[playbacks]
+mc_player_join     = { address = "/qlcplus/playback/30", arguments = [255] }
+mc_player_leave    = { address = "/qlcplus/playback/31", arguments = [255] }
+mc_player_death    = { address = "/qlcplus/playback/32", arguments = [255] }
+mc_advancement     = { address = "/qlcplus/playback/33", arguments = [255] }
+mc_challenge_start = { address = "/qlcplus/playback/34", arguments = [255] }
+mc_challenge_win   = { address = "/qlcplus/playback/35", arguments = [255] }
+
+[[games]]
+name    = "minecraft"
+enabled = true
+adapter = "games.minecraft:MinecraftAdapter"
+listen_host = "127.0.0.1"
+listen_port = 10052
+
+[games.cue_map]
+player_join        = "mc_player_join"
+player_leave       = "mc_player_leave"
+player_death       = "mc_player_death"
+advancement_unlock = "mc_advancement"
+challenge_start    = "mc_challenge_start"
+challenge_win      = "mc_challenge_win"
+
+[games.cooldowns]
+player_join        = 0.5
+player_leave       = 0.5
+player_death       = 0.5
+advancement_unlock = 0.5
+challenge_start    = 5.0
+challenge_win      = 5.0

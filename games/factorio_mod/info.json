@@ -1,0 +1,10 @@
+{
+  "name": "lanosc-bridge",
+  "version": "1.0.0",
+  "title": "LANOSC Bridge",
+  "author": "lanosc",
+  "contact": "",
+  "homepage": "",
+  "description": "Writes game events as JSON lines to script-output/lanosc_events.log for the LANOSC OSC bridge.",
+  "dependencies": ["base >= 2.0"]
+}

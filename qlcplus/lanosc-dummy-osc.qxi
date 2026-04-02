@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE InputProfile>
+<InputProfile>
+ <Creator>
+  <Name>Q Light Controller Plus</Name>
+  <Version>5.0.0</Version>
+  <Author>lanosc</Author>
+ </Creator>
+ <Manufacturer>lanosc</Manufacturer>
+ <Model>Dummy OSC</Model>
+ <Type>OSC</Type>
+ <Channel Number="0">
+  <Name>/lanosc/dummy/a</Name>
+  <Type>Button</Type>
+ </Channel>
+ <Channel Number="1">
+  <Name>/lanosc/dummy/b</Name>
+  <Type>Button</Type>
+ </Channel>
+</InputProfile>

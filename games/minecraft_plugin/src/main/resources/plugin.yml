@@ -1,0 +1,6 @@
+name: LanoscBridge
+version: 1.0.0
+main: lanosc.minecraft.LanoscPlugin
+api-version: '1.21'
+description: Sends Minecraft server events to LANOSC over UDP
+authors: [lanosc]

@@ -1,0 +1,39 @@
+[osc]
+host = "127.0.0.1"
+port = 9000
+
+[playbacks]
+bar_match_start = { address = "/qlcplus/playback/20", arguments = [255] }
+bar_match_end = { address = "/qlcplus/playback/21", arguments = [255] }
+bar_commander_down = { address = "/qlcplus/playback/22", arguments = [255] }
+bar_nuke_launch = { address = "/qlcplus/playback/23", arguments = [255] }
+bar_nuke_detonation = { address = "/qlcplus/playback/24", arguments = [255] }
+bar_superweapon = { address = "/qlcplus/playback/25", arguments = [255] }
+bar_tech3_unlock = { address = "/qlcplus/playback/26", arguments = [255] }
+
+[[games]]
+name = "bar"
+enabled = true
+adapter = "games.bar:BarSpectatorAdapter"
+listen_host = "127.0.0.1"
+listen_port = 10051
+require_spectator = true
+log_unknown_events = true
+
+[games.cue_map]
+match_started = "bar_match_start"
+match_ended = "bar_match_end"
+commander_died = "bar_commander_down"
+nuke_launched = "bar_nuke_launch"
+nuke_detonated = "bar_nuke_detonation"
+superweapon_fired = "bar_superweapon"
+t3_unlocked = "bar_tech3_unlock"
+
+[games.cooldowns]
+match_started = 5.0
+match_ended = 5.0
+commander_died = 1.0
+nuke_launched = 0.25
+nuke_detonated = 0.25
+superweapon_fired = 0.25
+t3_unlocked = 0.5
