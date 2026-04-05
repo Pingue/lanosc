@@ -8,8 +8,6 @@ function widget:GetInfo()
   }
 end
 
-local socket = require("socket")
-
 local udp = nil
 local host = "127.0.0.1"
 local port = 10051
@@ -65,9 +63,13 @@ local function encode_payload(eventName, extra)
 end
 
 local function emit(eventName, extra)
+  Spring.Echo("[LANOSC] emitting")
   if not udp then return end
   local payload = encode_payload(eventName, extra)
-  udp:sendto(payload, host, port)
+  local ok, err = udp:sendto(payload, host, port)
+  if not ok and Spring.Echo then
+    Spring.Echo("[LANOSC] sendto error: " .. tostring(err))
+  end
 end
 
 local function prepareDefinitionSets()
@@ -122,12 +124,20 @@ local function isT3Unit(unitDefID)
 end
 
 function widget:Initialize()
-  udp = socket.udp()
+  local err
+  udp, err = socket.udp()
+  if not udp then
+    if Spring.Echo then
+      Spring.Echo("[LANOSC] ERROR: failed to create UDP socket: " .. tostring(err))
+    end
+    return
+  end
   udp:settimeout(0)
   prepareDefinitionSets()
 
   if Spring.Echo then
     Spring.Echo("[LANOSC] Spectator bridge enabled -> " .. host .. ":" .. tostring(port))
+    emit("init")
   end
 end
 

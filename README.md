@@ -82,6 +82,10 @@ For setup details, integration policy, and development notes, see:
 - [games/BAR_SPECTATOR.md](games/BAR_SPECTATOR.md)
 - [qlcplus/README.md](qlcplus/README.md)
 
+## Disclaimer
+
+This project is entirely AI vibe coded, as it is unfeasible to learn the language for writing each game's plugin. I am open to having human review from people with the relevant expertise.
+
 ## License
 
 See [LICENSE](LICENSE).

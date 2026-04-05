@@ -38,6 +38,7 @@ DEFAULT_CUE_MAP: dict[str, str] = {
 	"nuke_detonated": "bar_nuke_detonation",
 	"superweapon_fired": "bar_superweapon",
 	"t3_unlocked": "bar_tech3_unlock",
+    "unit_built": "bar_unit_built",
 }
 
 DEFAULT_COOLDOWNS: dict[str, float] = {
