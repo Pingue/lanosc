@@ -89,3 +89,24 @@ This project is entirely AI vibe coded, as it is unfeasible to learn the languag
 ## License
 
 See [LICENSE](LICENSE).
+
+## Docker
+
+Images are published to `ghcr.io/pingue/lanosc`. Mount your config at `/config/lanosc.toml`.
+Game adapters that listen for events (for example CS2 game state integration) need their
+`listen_host` set to `0.0.0.0` and their port published, and the OSC `host` must be reachable
+from the container:
+
+```bash
+docker run --rm -v "$PWD/lanosc.toml:/config/lanosc.toml:ro" -p 10053:10053 ghcr.io/pingue/lanosc
+```
+
+On Linux, `--network host` is the simplest option when QLC+ runs on the same machine.
+
+## Releases
+
+Pushes to `main` are tested, then a semantic version is worked out from the
+[Conventional Commits](https://www.conventionalcommits.org/) since the last tag: `feat` bumps
+minor, `fix`/`perf` bump patch, and `!` or a `BREAKING CHANGE:` footer bumps major. Other types
+(`docs`, `ci`, `chore`, ...) don't release. When there is something to release it publishes the
+Docker image, tags the commit `vX.Y.Z` and creates a GitHub release.
